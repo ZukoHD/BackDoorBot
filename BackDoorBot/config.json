@@ -1,15 +1,15 @@
 {
     "UserInfo": {
-        "Usernames": ["dori#4040", "Robloxipad playz#2114", "dorian#4255"]
+        "Usernames": ["example#4040", "example#2114", "example#4255"]
     },
     "RoleInfo": {
         "Name": "new role",
         "Position": 19
     },
     "BotInfo": {
-        "Name": "Apollo",
-        "Prefix": "a!",
-        "Token": "damnnn",
-        "Icon": "https://cdn.discordapp.com/avatars/824119071556763668/6e2ce320c3347656af622ee1eca46ffc.png"
+        "Name": "bot-name",
+        "Prefix": "prefix-here",
+        "Token": "token-here",
+        "Icon": "icon-here"
     }
 }
