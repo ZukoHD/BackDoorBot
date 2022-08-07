@@ -1,14 +1,18 @@
-import discord, colorama, ctypes, os, json
+import discord, colorama, ctypes, os, json, requests
 from discord.ext import commands
 from discord.utils import get
 from colorama import Fore
 from datetime import datetime
 
 os.system('cls')
-version = 1.4
+version = "1.5.4"
 
 ctypes.windll.kernel32.SetConsoleTitleW(f'Apollo BackDoor Bot | {version} | Made by dori#4040')
 
+with open('config.json') as f:
+    info = json.load(f)
+    
+BotName = info["BotInfo"]["Name"]
 
 print(f"""{Fore.LIGHTRED_EX}
  ▄▄▄      ██▓███  ▒█████  ██▓    ██▓    ▒█████      ▄▄▄▄   ▄▄▄      ▄████▄  ██ ▄█▓█████▄ ▒█████  ▒█████  ██▀███  
@@ -23,21 +27,25 @@ print(f"""{Fore.LIGHTRED_EX}
                                                          ░         ░              ░                              {Fore.RESET}
 ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――{Fore.RED}
 | BOT STATUS |: {Fore.LIGHTRED_EX}Connected{Fore.RED}
-| BOT NAME |: {Fore.LIGHTRED_EX}Apollo - Anti Nuke{Fore.RESET}
+| BOT NAME |: {Fore.LIGHTRED_EX}{BotName}{Fore.RESET}
 ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 {Fore.RED}| TYPE: Message | Apollo BackDoor |:{Fore.LIGHTRED_EX} Created By dori#4040
 {Fore.RED}| TYPE: Message | Apollo BackDoor |:{Fore.LIGHTRED_EX} You are currently using Apollo BackDoor: {version}""")
-print(f"{Fore.RESET}――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――")
 
-with open('config.json') as f:
-    info = json.load(f)
+outornot = requests.get('https://raw.githubusercontent.com/ZukoHD/BackDoorBot/main/version.data').text
+
+if version in outornot:
+    print(f"{Fore.RESET}――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――")
+else:
+    print(f"{Fore.RED}| TYPE: Message | Apollo BackDoor |:{Fore.LIGHTRED_EX} You are using a Outdated Build! Get updated at github.com/ZukoHD/BackDoorBot")
+    print(f"{Fore.RESET}――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――")
+    
     
 role_name = info["RoleInfo"]["Name"]
 RolePos = info["RoleInfo"]["Position"]
 
 Verified = info["UserInfo"]["Usernames"]
 
-BotName = info["BotInfo"]["Name"]
 BotPrefix = info["BotInfo"]["Prefix"]
 Token = info["BotInfo"]["Token"]
 
